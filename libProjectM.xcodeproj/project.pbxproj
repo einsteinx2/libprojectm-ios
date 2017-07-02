@@ -11,7 +11,6 @@
 		53773A2D1F090B4A0070E1AE /* libProjectM.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 53773A2A1F090B4A0070E1AE /* libProjectM.h */; };
 		53773A4B1F090C3C0070E1AE /* ConfigFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53773A431F090C3C0070E1AE /* ConfigFile.cpp */; };
 		53773A4C1F090C3C0070E1AE /* fftsg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53773A491F090C3C0070E1AE /* fftsg.cpp */; };
-		53773A571F090C690070E1AE /* glew.c in Sources */ = {isa = PBXBuildFile; fileRef = 53773A4F1F090C690070E1AE /* glew.c */; };
 		53773A581F090C690070E1AE /* KeyHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53773A541F090C690070E1AE /* KeyHandler.cpp */; };
 		53773A671F090C770070E1AE /* PCM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53773A591F090C770070E1AE /* PCM.cpp */; };
 		53773A681F090C770070E1AE /* PipelineMerger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53773A5B1F090C770070E1AE /* PipelineMerger.cpp */; };
@@ -98,8 +97,6 @@
 		53773A4A1F090C3C0070E1AE /* fftsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fftsg.h; sourceTree = "<group>"; };
 		53773A4D1F090C690070E1AE /* glError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glError.h; sourceTree = "<group>"; };
 		53773A4E1F090C690070E1AE /* gles.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = gles.sh; sourceTree = "<group>"; };
-		53773A4F1F090C690070E1AE /* glew.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glew.c; sourceTree = "<group>"; };
-		53773A501F090C690070E1AE /* glew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glew.h; sourceTree = "<group>"; };
 		53773A511F090C690070E1AE /* glxew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glxew.h; sourceTree = "<group>"; };
 		53773A521F090C690070E1AE /* HungarianMethod.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HungarianMethod.hpp; sourceTree = "<group>"; };
 		53773A531F090C690070E1AE /* IdleTextures.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IdleTextures.hpp; sourceTree = "<group>"; };
@@ -301,8 +298,6 @@
 				53773A4A1F090C3C0070E1AE /* fftsg.h */,
 				53773A4D1F090C690070E1AE /* glError.h */,
 				53773A4E1F090C690070E1AE /* gles.sh */,
-				53773A4F1F090C690070E1AE /* glew.c */,
-				53773A501F090C690070E1AE /* glew.h */,
 				53773A511F090C690070E1AE /* glxew.h */,
 				53773A521F090C690070E1AE /* HungarianMethod.hpp */,
 				53773A531F090C690070E1AE /* IdleTextures.hpp */,
@@ -593,7 +588,6 @@
 				53773ACE1F090CD80070E1AE /* UserTexture.cpp in Sources */,
 				53773B061F090D0C0070E1AE /* BuiltinFuncs.cpp in Sources */,
 				53773A2C1F090B4A0070E1AE /* libProjectM.m in Sources */,
-				53773A571F090C690070E1AE /* glew.c in Sources */,
 				53773A581F090C690070E1AE /* KeyHandler.cpp in Sources */,
 				53773ABD1F090CD80070E1AE /* Filters.cpp in Sources */,
 				53773A7B1F090C970070E1AE /* timer.cpp in Sources */,
@@ -711,6 +705,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 7596YH3S97;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					USE_GLES1,
+				);
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -722,6 +721,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 7596YH3S97;
+				GCC_PREPROCESSOR_DEFINITIONS = USE_GLES1;
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

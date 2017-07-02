@@ -8,12 +8,11 @@
 #include <set>
 
 #ifdef USE_GLES1
-  #include <GLES/gl.h>
+  //#include <GLES/gl.h>
+  #include <OpenGLES/ES1/gl.h>
 #else
   #ifdef __APPLE__
-    #include <OpenGLES/ES1/gl.h>
-    //#include <OpenGLES/ES2/gl.h>
-    //#include <OpenGL/gl.h>
+    #include <OpenGL/gl.h>
   #else
     #include <GL/gl.h>
     #include <GL/glu.h>

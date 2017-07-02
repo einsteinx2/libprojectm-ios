@@ -5,7 +5,7 @@
 	#ifdef EMSCRIPTEN
 	#include <GL/gl.h>
 	#else
-	#include <GLES/gl.h>
+	#include <OpenGLES/ES1/gl.h>
 	#endif
 #else
 #ifdef __APPLE__

@@ -155,7 +155,7 @@ void Renderer::SetupPass1(const Pipeline &pipeline, const PipelineContext &pipel
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	glOrtho(0.0, 1, 0.0, 1, -40, 40);
+	glOrthof(0.0, 1, 0.0, 1, -40, 40);
 
 #ifndef EMSCRIPTEN
 	glMatrixMode(GL_MODELVIEW);
@@ -224,7 +224,7 @@ void Renderer::Pass2(const Pipeline &pipeline, const PipelineContext &pipelineCo
 	glMatrixMode(GL_PROJECTION);
 #endif
 	glLoadIdentity();
-	glOrtho(-0.5, 0.5, -0.5, 0.5, -40, 40);
+	glOrthof(-0.5, 0.5, -0.5, 0.5, -40, 40);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	glLineWidth(this->renderTarget->texsize < 512 ? 1 : this->renderTarget->texsize / 512.0);
@@ -338,7 +338,8 @@ void Renderer::Interpolation(const Pipeline &pipeline)
 	//glVertexPointer(2, GL_FLOAT, 0, p);
 	//glTexCoordPointer(2, GL_FLOAT, 0, t);
 #ifndef EMSCRIPTEN
-	glInterleavedArrays(GL_T2F_V3F,0,p);
+    // BEN TODO: uncomment this
+	//glInterleavedArrays(GL_T2F_V3F,0,p);
 #endif
 
 	if (pipeline.staticPerPixel)
