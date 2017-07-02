@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.glView = [[GLView alloc] initWithFrame:CGRectMake(0, 0, 512, 512)];
+    self.glView = [[GLView alloc] initWithFrame:self.view.bounds];
     self.glView.delegate = self;
     [self.view addSubview:self.glView];
     [self.glView startAnimation];
@@ -29,7 +29,21 @@
 
 - (void)setupView:(UIView *)theView
 {
-    int width = 512, height = 512;
+    const GLfloat zNear = 0.01, zFar = 1000.0, fieldOfView = 45.0;
+    GLfloat size;
+    glEnable(GL_DEPTH_TEST);
+    glMatrixMode(GL_PROJECTION);
+    size = zNear * tanf(DEGREES_TO_RADIANS(fieldOfView) / 2.0);
+    CGRect rect = theView.bounds;
+    glFrustumf(-size, size, -size / (rect.size.width / rect.size.height), size /
+               (rect.size.width / rect.size.height), zNear, zFar);
+    glViewport(0, 0, rect.size.width, rect.size.height);
+    glMatrixMode(GL_MODELVIEW);
+    
+    glLoadIdentity();
+    
+    
+    int width = self.view.bounds.size.width, height = self.view.bounds.size.height;
     
     NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
     NSString *presetsPath = [bundlePath stringByAppendingString:@"/presets/"];
@@ -56,19 +70,6 @@
     _pm = new projectM(settings);
     _pm->selectRandom(true);
     _pm->projectM_resetGL(width, height);
-    
-    const GLfloat zNear = 0.01, zFar = 1000.0, fieldOfView = 45.0;
-    GLfloat size;
-    glEnable(GL_DEPTH_TEST);
-    glMatrixMode(GL_PROJECTION);
-    size = zNear * tanf(DEGREES_TO_RADIANS(fieldOfView) / 2.0);
-    CGRect rect = theView.bounds;
-    glFrustumf(-size, size, -size / (rect.size.width / rect.size.height), size /
-               (rect.size.width / rect.size.height), zNear, zFar);
-    glViewport(0, 0, rect.size.width, rect.size.height);
-    glMatrixMode(GL_MODELVIEW);
-    
-    glLoadIdentity();
 }
 
 - (void)drawView:(UIView *)theView
