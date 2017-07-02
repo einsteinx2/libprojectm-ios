@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "projectmtest/AudioController.mm"
-            timestampString = "520708174.43019"
+            timestampString = "520708645.77797"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "projectmtest/AudioController.mm"
-            timestampString = "520708174.430547"
+            timestampString = "520708645.778028"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
@@ -144,6 +144,22 @@
             startingLineNumber = "38"
             endingLineNumber = "38"
             landmarkName = "BufferManager::BufferManager( UInt32 inMaxFramesPerSlice )"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "libprojectM210/Renderer/TextureManager.cpp"
+            timestampString = "520712809.169018"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
+            landmarkName = "TextureManager::loadTextureDir()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

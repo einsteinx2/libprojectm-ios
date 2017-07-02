@@ -12,7 +12,7 @@
 #include "glew.h"
 #endif
 #ifdef __APPLE__
-#include <OpenGL/gl.h>
+#include <OpenGLES/ES1/gl.h>
 #endif
 
 #include "Waveform.hpp"

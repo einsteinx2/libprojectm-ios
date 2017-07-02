@@ -10,9 +10,9 @@
 
 #include <string>
 
-#include "Renderer/BeatDetect.hpp"
-#include "Renderer/Pipeline.hpp"
-#include "Renderer/PipelineContext.hpp"
+#include "BeatDetect.hpp"
+#include "Pipeline.hpp"
+#include "PipelineContext.hpp"
 
 class Preset {
 public:

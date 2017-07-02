@@ -20,7 +20,7 @@
 #define OMPTL_ALGORITHM 1
 
 #include <algorithm>
-#include "omptl"
+#include "omptl.h"
 
 namespace omptl
 {

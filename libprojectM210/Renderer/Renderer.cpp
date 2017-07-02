@@ -8,8 +8,8 @@
 #include <algorithm>
 #include <sys/stat.h>
 #include <cassert>
-#include "omptl/omptl"
-#include "omptl/omptl_algorithm"
+#include "omptl.h"
+#include "omptl_algorithm.h"
 #include "UserTexture.hpp"
 
 class Preset;
@@ -298,6 +298,32 @@ void Renderer::RenderFrame(const Pipeline &pipeline, const PipelineContext &pipe
 	Pass2(pipeline, pipelineContext);
 }
 
+#ifdef __APPLE__
+// Hard coded for GL_T2F_V3F format
+void glInterleavedArrays(GLsizei stride, const GLvoid *pointer)
+{
+    GLenum tType = GL_FLOAT, vType = GL_FLOAT;
+    GLint tSize = 0, vSize;
+    int vOffset = 0;
+    GLint trueStride, size;
+    
+    // GL_T2F_V3F
+    tSize = 2;
+    vSize = 3;
+    vOffset = sizeof(GLfloat) * tSize;
+    size = vOffset + sizeof(GLfloat) * vSize;
+    
+    trueStride = (stride == 0) ? size : stride;
+    
+    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+    glTexCoordPointer(tSize, tType, trueStride, (const char *)pointer);
+    glDisableClientState(GL_COLOR_ARRAY);
+    glDisableClientState(GL_NORMAL_ARRAY);
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glVertexPointer(vSize, vType, trueStride, (const char *)pointer+vOffset);
+}
+#endif
+
 void Renderer::Interpolation(const Pipeline &pipeline)
 {
 	if (this->renderTarget->useFBO)
@@ -339,8 +365,13 @@ void Renderer::Interpolation(const Pipeline &pipeline)
 
 	//glVertexPointer(2, GL_FLOAT, 0, p);
 	//glTexCoordPointer(2, GL_FLOAT, 0, t);
-	glInterleavedArrays(GL_T2F_V3F,0,p);
-
+    
+#ifdef __APPLE__
+    // TODO BEN: Make sure this works
+    glInterleavedArrays(0,p);
+#else
+    glInterleavedArrays(GL_T2F_V3F,0,p);
+#endif
 
 	if (pipeline.staticPerPixel)
 	{

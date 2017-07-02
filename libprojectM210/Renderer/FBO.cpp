@@ -25,7 +25,7 @@
  */
 
 #include <stdio.h>
-//#include <GL/gl.h>
+#include <OpenGLES/ES1/gl.h>
 #include <iostream>
 #include "Common.hpp"
 #include "FBO.hpp"

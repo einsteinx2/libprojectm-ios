@@ -2,7 +2,7 @@
 #include "Common.hpp"
 
 #ifdef USE_GLES1
-#include <GLES/gl.h>
+#include <OpenGLES/ES1/gl.h>
 #else
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
@@ -299,6 +299,43 @@ void MotionVectors::Draw(RenderContext &context)
 	  }
 }
 
+#ifdef __APPLE__
+GLfloat glRectdTexture[] =
+{
+    0, 0,
+    0, 1,
+    1, 0,
+    1, 1
+};
+
+GLvoid glRectd(GLint x1, GLint y1, GLint x2, GLint y2)
+{
+//    GLfloat model[] =
+//    {
+//        0, 0, // lower left
+//        0, h, // upper left
+//        w, 0, // lower right
+//        w, h  // upper right
+//    };
+    
+    GLint model[] =
+    {
+        x1, y1, // lower left
+        x1, y2, // upper left
+        x2, y1, // lower right
+        x2, y2  // upper right
+    };
+
+    
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+    
+    glVertexPointer(2, GL_FLOAT, 0, model);
+    glTexCoordPointer(2, GL_FLOAT, 0, glRectdTexture);
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+}
+#endif
+
 void Border::Draw(RenderContext &context)
 {
 	glEnableClientState(GL_VERTEX_ARRAY);
@@ -331,11 +368,15 @@ void Border::Draw(RenderContext &context)
 
 	glColor4f(inner_r, inner_g, inner_b, inner_a * masterAlpha);
 
+    // glRect doesn't exist in GLES I think
+    // TODO BEN: replace glRect
+//#ifndef USE_GLES1
 	glRectd(of, of, of+iff, texof);
 	glRectd(of+iff, of, texof-iff, of+iff);
 	glRectd(texof-iff, of, texof, texof);
 	glRectd(of+iff, texof, texof-iff, texof-iff);
-
+//#endif
+    
 	float pointsE[4][2] = {{of,of},{of,texof},{of+iff,of},{of+iff,texof}};
 	glVertexPointer(2,GL_FLOAT,0,pointsE);
 	glDrawArrays(GL_TRIANGLE_STRIP,0,4);

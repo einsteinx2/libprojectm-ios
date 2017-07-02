@@ -8,7 +8,7 @@
 #include "Common.hpp"
 
 #ifdef USE_GLES1
-#include <GLES/gl.h>
+#include <OpenGLES/ES1/gl.h>
 #else
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
@@ -77,10 +77,10 @@ void VideoEcho::Draw(RenderContext &context)
 			default: flipx=1;flipy=1; break;
 		}
 
-		float pointsFlip[4][2] = {{-0.5*flipx, -0.5*flipy},
-					  {-0.5*flipx,  0.5*flipy},
-					  { 0.5*flipx,  0.5*flipy},
-					  { 0.5*flipx, -0.5*flipy}};
+		float pointsFlip[4][2] = {{static_cast<float>(-0.5*flipx), static_cast<float>(-0.5*flipy)},
+                                  {static_cast<float>(-0.5*flipx),  static_cast<float>(0.5*flipy)},
+					              { static_cast<float>(0.5*flipx),  static_cast<float>(0.5*flipy)},
+					              { static_cast<float>(0.5*flipx), static_cast<float>(-0.5*flipy)}};
 
 		glVertexPointer(2,GL_FLOAT,0,pointsFlip);
 		glDrawArrays(GL_TRIANGLE_FAN,0,4);

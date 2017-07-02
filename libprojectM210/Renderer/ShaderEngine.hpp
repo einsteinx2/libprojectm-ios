@@ -11,7 +11,7 @@
 #include "Common.hpp"
 
 #ifdef USE_GLES1
-#include <GLES/gl.h>
+#include <OpenGLES/ES1/gl.h>
 #else
 #ifdef __APPLE__
 #include <OpenGL/gl.h>

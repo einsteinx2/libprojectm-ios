@@ -23,6 +23,7 @@
 #elif defined(__APPLE__) || defined(__APPLE_CC__)
 	/*	I can't test this Apple stuff!	*/
 	#include <OpenGLES/ES1/gl.h>
+    #include <OpenGLES/ES1/glext.h>
     #include <Foundation/Foundation.h>
 	//#include <Carbon/Carbon.h>
 	#define APIENTRY
@@ -1360,6 +1361,7 @@ unsigned int
 		} else
 		{
 			/*	unsigned int clamp_mode = SOIL_CLAMP_TO_EDGE;	*/
+            #define GL_CLAMP 0x2900
 			unsigned int clamp_mode = GL_CLAMP;
 			glTexParameteri( opengl_texture_type, GL_TEXTURE_WRAP_S, clamp_mode );
 			glTexParameteri( opengl_texture_type, GL_TEXTURE_WRAP_T, clamp_mode );

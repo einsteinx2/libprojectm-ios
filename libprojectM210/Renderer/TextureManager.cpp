@@ -5,7 +5,7 @@
 #include "glew.h"
 #endif
 #ifdef __APPLE__
-#include <OpenGL/gl.h>
+#include <OpenGLES/ES1/gl.h>
 #endif
 
 #ifdef USE_DEVIL
@@ -212,45 +212,47 @@ unsigned int TextureManager::getTextureMemorySize()
 
 void TextureManager::loadTextureDir()
 {
-	std::string dirname = CMAKE_INSTALL_PREFIX "/share/projectM/textures";
-
-	  DIR * m_dir;
-
-	 // Allocate a new a stream given the current directory name
-	  if ((m_dir = opendir(dirname.c_str())) == NULL)
-	  {
-	    std::cout<<"No Textures Loaded from "<<dirname<<std::endl;
-	    return; // no files loaded. m_entries is empty
-	  }
-
-	  struct dirent * dir_entry;
-
-	  while ((dir_entry = readdir(m_dir)) != NULL)
-	  {
-
-	    // Convert char * to friendly string
-	    std::string filename(dir_entry->d_name);
-
-	    if (filename.length() > 0 && filename[0] == '.')
-		continue;
-
-	    // Create full path name
-	    std::string fullname = dirname + PATH_SEPARATOR + filename;
-
-	    unsigned int texId = getTextureFullpath(filename, fullname);
-	    if(texId != 0)
-	    {
-	    	user_textures.push_back(texId);
-	    	textures[filename]=texId;
-	    	user_texture_names.push_back(filename);
-	    }
-	  }
-
-	  if (m_dir)
-	    {
-	      closedir(m_dir);
-	      m_dir = 0;
-	    }
+    // TODO BEN: Figure out why this is necessary, the working macOS SDL version prints
+    // the No Textures Loade message, so it's not using them anyway
+//	std::string dirname = CMAKE_INSTALL_PREFIX "/share/projectM/textures";
+//
+//	  DIR * m_dir;
+//
+//	 // Allocate a new a stream given the current directory name
+//	  if ((m_dir = opendir(dirname.c_str())) == NULL)
+//	  {
+//	    std::cout<<"No Textures Loaded from "<<dirname<<std::endl;
+//	    return; // no files loaded. m_entries is empty
+//	  }
+//
+//	  struct dirent * dir_entry;
+//
+//	  while ((dir_entry = readdir(m_dir)) != NULL)
+//	  {
+//
+//	    // Convert char * to friendly string
+//	    std::string filename(dir_entry->d_name);
+//
+//	    if (filename.length() > 0 && filename[0] == '.')
+//		continue;
+//
+//	    // Create full path name
+//	    std::string fullname = dirname + PATH_SEPARATOR + filename;
+//
+//	    unsigned int texId = getTextureFullpath(filename, fullname);
+//	    if(texId != 0)
+//	    {
+//	    	user_textures.push_back(texId);
+//	    	textures[filename]=texId;
+//	    	user_texture_names.push_back(filename);
+//	    }
+//	  }
+//
+//	  if (m_dir)
+//	    {
+//	      closedir(m_dir);
+//	      m_dir = 0;
+//	    }
 
 }
 

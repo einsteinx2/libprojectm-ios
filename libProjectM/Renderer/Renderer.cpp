@@ -312,8 +312,6 @@ void glInterleavedArrays(GLsizei stride, const GLvoid *pointer)
     
     trueStride = (stride == 0) ? size : stride;
     
-    //glDisableClientState(GL_EDGE_FLAG_ARRAY);
-    //glDisableClientState(GL_INDEX_ARRAY);
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     glTexCoordPointer(tSize, tType, trueStride, (const char *)pointer);
     glDisableClientState(GL_COLOR_ARRAY);

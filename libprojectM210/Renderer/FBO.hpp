@@ -47,12 +47,14 @@
 
 #ifdef LINUX
 #ifdef USE_GLES1
-#include <GLES/gl.h>
+#include <OpenGLES/ES1/gl.h>
 #else
 #include <GL/gl.h>
 #include <GL/glx.h>
 #endif
 #endif
+
+#include <OpenGLES/ES1/gl.h>
 
 typedef enum { SCALE_NEAREST, SCALE_MAGNIFY, SCALE_MINIFY } TextureScale;
 
