@@ -67,14 +67,14 @@
 		53773B211F090DF70070E1AE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53773B201F090DF70070E1AE /* QuartzCore.framework */; };
 		53773B3A1F0931DB0070E1AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53773B391F0931DB0070E1AE /* main.m */; };
 		53773B3D1F0931DB0070E1AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53773B3C1F0931DB0070E1AE /* AppDelegate.m */; };
-		53773B401F0931DB0070E1AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53773B3F1F0931DB0070E1AE /* ViewController.m */; };
+		53773B401F0931DB0070E1AE /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 53773B3F1F0931DB0070E1AE /* ViewController.mm */; };
 		53773B431F0931DB0070E1AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53773B411F0931DB0070E1AE /* Main.storyboard */; };
 		53773B451F0931DB0070E1AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53773B441F0931DB0070E1AE /* Assets.xcassets */; };
 		53773B481F0931DB0070E1AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53773B461F0931DB0070E1AE /* LaunchScreen.storyboard */; };
 		53773B4D1F0931E40070E1AE /* liblibProjectM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53773A271F090B4A0070E1AE /* liblibProjectM.a */; };
-		53773B521F0932430070E1AE /* ProjectMView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 53773B511F0932430070E1AE /* ProjectMView.mm */; };
 		53D18D011F09388B00E7390F /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 53D18CFF1F09388B00E7390F /* fonts */; };
 		53D18D021F09388B00E7390F /* presets in Resources */ = {isa = PBXBuildFile; fileRef = 53D18D001F09388B00E7390F /* presets */; };
+		53D18D051F093F3C00E7390F /* GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D18D041F093F3C00E7390F /* GLView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -269,15 +269,16 @@
 		53773B3B1F0931DB0070E1AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		53773B3C1F0931DB0070E1AE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		53773B3E1F0931DB0070E1AE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		53773B3F1F0931DB0070E1AE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		53773B3F1F0931DB0070E1AE /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		53773B421F0931DB0070E1AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		53773B441F0931DB0070E1AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53773B471F0931DB0070E1AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53773B491F0931DB0070E1AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		53773B501F0932430070E1AE /* ProjectMView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectMView.h; sourceTree = "<group>"; };
-		53773B511F0932430070E1AE /* ProjectMView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ProjectMView.mm; sourceTree = "<group>"; };
 		53D18CFF1F09388B00E7390F /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = SOURCE_ROOT; };
 		53D18D001F09388B00E7390F /* presets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = presets; sourceTree = SOURCE_ROOT; };
+		53D18D031F093F3C00E7390F /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLView.h; sourceTree = "<group>"; };
+		53D18D041F093F3C00E7390F /* GLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLView.m; sourceTree = "<group>"; };
+		53D18D061F093F6900E7390F /* ConstantsAndMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstantsAndMacros.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -544,9 +545,10 @@
 				53773B3B1F0931DB0070E1AE /* AppDelegate.h */,
 				53773B3C1F0931DB0070E1AE /* AppDelegate.m */,
 				53773B3E1F0931DB0070E1AE /* ViewController.h */,
-				53773B3F1F0931DB0070E1AE /* ViewController.m */,
-				53773B501F0932430070E1AE /* ProjectMView.h */,
-				53773B511F0932430070E1AE /* ProjectMView.mm */,
+				53773B3F1F0931DB0070E1AE /* ViewController.mm */,
+				53D18D061F093F6900E7390F /* ConstantsAndMacros.h */,
+				53D18D031F093F3C00E7390F /* GLView.h */,
+				53D18D041F093F3C00E7390F /* GLView.m */,
 				53773B411F0931DB0070E1AE /* Main.storyboard */,
 				53773B441F0931DB0070E1AE /* Assets.xcassets */,
 				53773B461F0931DB0070E1AE /* LaunchScreen.storyboard */,
@@ -724,10 +726,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53773B401F0931DB0070E1AE /* ViewController.m in Sources */,
+				53773B401F0931DB0070E1AE /* ViewController.mm in Sources */,
 				53773B3D1F0931DB0070E1AE /* AppDelegate.m in Sources */,
 				53773B3A1F0931DB0070E1AE /* main.m in Sources */,
-				53773B521F0932430070E1AE /* ProjectMView.mm in Sources */,
+				53D18D051F093F3C00E7390F /* GLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

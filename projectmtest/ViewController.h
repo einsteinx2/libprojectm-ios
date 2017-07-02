@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GLView.h"
 
-@interface ViewController : UIViewController
-
-
+@interface ViewController : UIViewController<GLViewDelegate>
+@property (nonatomic, strong) GLView *glView;
 @end
 
