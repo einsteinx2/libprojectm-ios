@@ -9,10 +9,12 @@
 #import "ViewController.h"
 #import "ConstantsAndMacros.h"
 #import "projectM.hpp"
+#import "AudioController.h"
 
 @interface ViewController()
 {
     projectM *_pm;
+    AudioController *_audioController;
 }
 @end
 
@@ -20,6 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _audioController = [[AudioController alloc] init];
+    [_audioController startIOUnit];
     
     self.glView = [[GLView alloc] initWithFrame:self.view.bounds];
     self.glView.delegate = self;
@@ -63,7 +68,7 @@
     settings.easterEgg = 0; // ???
     settings.shuffleEnabled = 1;
     settings.softCutRatingsEnabled = 1; // ???
-    settings.presetURL = [[presetsPath stringByAppendingString:@"presets_tryptonaut"] cStringUsingEncoding:NSUTF8StringEncoding];
+    settings.presetURL = [[presetsPath stringByAppendingString:@"presets_milkdrop"] cStringUsingEncoding:NSUTF8StringEncoding];
     settings.menuFontURL = [[fontsPath stringByAppendingString:@"Vera.ttf"] cStringUsingEncoding:NSUTF8StringEncoding];
     settings.titleFontURL = [[fontsPath stringByAppendingString:@"Vera.ttf"] cStringUsingEncoding:NSUTF8StringEncoding];
     
@@ -74,25 +79,28 @@
 
 - (void)drawView:(UIView *)theView
 {
-    short pcm_data[2][512];
+//    short pcm_data[2][512];
+//    
+//    /** Produce some fake PCM data to stuff into projectM */
+//    for ( int i = 0 ; i < 512 ; i++ ) {
+//        if ( i % 2 == 0 ) {
+//            pcm_data[0][i] = (float)( rand() / ( (float)RAND_MAX ) * (pow(2,14) ) );
+//            pcm_data[1][i] = (float)( rand() / ( (float)RAND_MAX ) * (pow(2,14) ) );
+//        } else {
+//            pcm_data[0][i] = (float)( rand() / ( (float)RAND_MAX ) * (pow(2,14) ) );
+//            pcm_data[1][i] = (float)( rand() / ( (float)RAND_MAX ) * (pow(2,14) ) );
+//        }
+//        if ( i % 2 == 1 ) {
+//            pcm_data[0][i] = -pcm_data[0][i];
+//            pcm_data[1][i] = -pcm_data[1][i];
+//        }
+//    }
+//    
+//    /** Add the waveform data */
+//    _pm->pcm()->addPCM16(pcm_data);
     
-    /** Produce some fake PCM data to stuff into projectM */
-    for ( int i = 0 ; i < 512 ; i++ ) {
-        if ( i % 2 == 0 ) {
-            pcm_data[0][i] = (float)( rand() / ( (float)RAND_MAX ) * (pow(2,14) ) );
-            pcm_data[1][i] = (float)( rand() / ( (float)RAND_MAX ) * (pow(2,14) ) );
-        } else {
-            pcm_data[0][i] = (float)( rand() / ( (float)RAND_MAX ) * (pow(2,14) ) );
-            pcm_data[1][i] = (float)( rand() / ( (float)RAND_MAX ) * (pow(2,14) ) );
-        }
-        if ( i % 2 == 1 ) {
-            pcm_data[0][i] = -pcm_data[0][i];
-            pcm_data[1][i] = -pcm_data[1][i];
-        }
-    }
-    
-    /** Add the waveform data */
-    _pm->pcm()->addPCM16(pcm_data);
+    BufferManager *buffer = [_audioController getBufferManagerInstance];
+    _pm->pcm()->addPCMfloat(buffer->mPCMData, buffer->mPCMSamples);
     
     glClearColor( 0.0, 0.5, 0.0, 0.0 );
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

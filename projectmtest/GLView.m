@@ -49,20 +49,12 @@
         eaglLayer.opaque = YES;
         eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
                                         [NSNumber numberWithBool:NO], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat, nil];
+    
+        _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
         
-#if kAttemptToUseOpenGLES2
-        context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-        if (context == NULL)
-        {
-#endif
-            _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
-            
-            if (!_context || ![EAGLContext setCurrentContext:_context]) {
-                return nil;
-            }
-#if kAttemptToUseOpenGLES2
+        if (!_context || ![EAGLContext setCurrentContext:_context]) {
+            return nil;
         }
-#endif
         
         _animationInterval = 1.0 / kRenderingFrequency;
     }

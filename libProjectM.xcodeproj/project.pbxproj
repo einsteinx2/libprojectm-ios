@@ -75,6 +75,16 @@
 		53D18D011F09388B00E7390F /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 53D18CFF1F09388B00E7390F /* fonts */; };
 		53D18D021F09388B00E7390F /* presets in Resources */ = {isa = PBXBuildFile; fileRef = 53D18D001F09388B00E7390F /* presets */; };
 		53D18D051F093F3C00E7390F /* GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D18D041F093F3C00E7390F /* GLView.m */; };
+		53D18D0A1F0956D000E7390F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53D18D091F0956D000E7390F /* AudioToolbox.framework */; };
+		53D18D0D1F0956DF00E7390F /* AudioController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 53D18D0C1F0956DF00E7390F /* AudioController.mm */; };
+		53D18D151F09572F00E7390F /* BufferManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53D18D0F1F09572F00E7390F /* BufferManager.cpp */; };
+		53D18D161F09572F00E7390F /* DCRejectionFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53D18D111F09572F00E7390F /* DCRejectionFilter.cpp */; };
+		53D18D171F09572F00E7390F /* FFTHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53D18D131F09572F00E7390F /* FFTHelper.cpp */; };
+		53D18D201F09576300E7390F /* CADebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53D18D1A1F09576300E7390F /* CADebugMacros.cpp */; };
+		53D18D211F09576300E7390F /* CAXException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53D18D1C1F09576300E7390F /* CAXException.cpp */; };
+		53D18D221F09576300E7390F /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53D18D1F1F09576300E7390F /* CAStreamBasicDescription.cpp */; };
+		53D18D241F09581500E7390F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53D18D231F09581500E7390F /* AVFoundation.framework */; };
+		53D18D261F09582800E7390F /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53D18D251F09582800E7390F /* Accelerate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -279,6 +289,25 @@
 		53D18D031F093F3C00E7390F /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLView.h; sourceTree = "<group>"; };
 		53D18D041F093F3C00E7390F /* GLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLView.m; sourceTree = "<group>"; };
 		53D18D061F093F6900E7390F /* ConstantsAndMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstantsAndMacros.h; sourceTree = "<group>"; };
+		53D18D091F0956D000E7390F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		53D18D0B1F0956DF00E7390F /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioController.h; sourceTree = "<group>"; };
+		53D18D0C1F0956DF00E7390F /* AudioController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioController.mm; sourceTree = "<group>"; };
+		53D18D0F1F09572F00E7390F /* BufferManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BufferManager.cpp; sourceTree = "<group>"; };
+		53D18D101F09572F00E7390F /* BufferManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BufferManager.h; sourceTree = "<group>"; };
+		53D18D111F09572F00E7390F /* DCRejectionFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DCRejectionFilter.cpp; sourceTree = "<group>"; };
+		53D18D121F09572F00E7390F /* DCRejectionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRejectionFilter.h; sourceTree = "<group>"; };
+		53D18D131F09572F00E7390F /* FFTHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFTHelper.cpp; sourceTree = "<group>"; };
+		53D18D141F09572F00E7390F /* FFTHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFTHelper.h; sourceTree = "<group>"; };
+		53D18D181F09576300E7390F /* CABitOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CABitOperations.h; sourceTree = "<group>"; };
+		53D18D191F09576300E7390F /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugMacros.h; sourceTree = "<group>"; };
+		53D18D1A1F09576300E7390F /* CADebugMacros.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CADebugMacros.cpp; sourceTree = "<group>"; };
+		53D18D1B1F09576300E7390F /* CAXException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAXException.h; sourceTree = "<group>"; };
+		53D18D1C1F09576300E7390F /* CAXException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAXException.cpp; sourceTree = "<group>"; };
+		53D18D1D1F09576300E7390F /* CAMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAMath.h; sourceTree = "<group>"; };
+		53D18D1E1F09576300E7390F /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
+		53D18D1F1F09576300E7390F /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
+		53D18D231F09581500E7390F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		53D18D251F09582800E7390F /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +324,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53D18D261F09582800E7390F /* Accelerate.framework in Frameworks */,
+				53D18D241F09581500E7390F /* AVFoundation.framework in Frameworks */,
+				53D18D0A1F0956D000E7390F /* AudioToolbox.framework in Frameworks */,
 				53773B4D1F0931E40070E1AE /* liblibProjectM.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,6 +543,9 @@
 		53773B1D1F090DA00070E1AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				53D18D251F09582800E7390F /* Accelerate.framework */,
+				53D18D231F09581500E7390F /* AVFoundation.framework */,
+				53D18D091F0956D000E7390F /* AudioToolbox.framework */,
 				53773B201F090DF70070E1AE /* QuartzCore.framework */,
 				53773B1E1F090DA00070E1AE /* OpenGLES.framework */,
 			);
@@ -540,6 +575,7 @@
 		53773B371F0931DB0070E1AE /* projectmtest */ = {
 			isa = PBXGroup;
 			children = (
+				53D18D0E1F09572100E7390F /* Audio */,
 				53D18CFF1F09388B00E7390F /* fonts */,
 				53D18D001F09388B00E7390F /* presets */,
 				53773B3B1F0931DB0070E1AE /* AppDelegate.h */,
@@ -564,6 +600,29 @@
 				53773B391F0931DB0070E1AE /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		53D18D0E1F09572100E7390F /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				53D18D0B1F0956DF00E7390F /* AudioController.h */,
+				53D18D0C1F0956DF00E7390F /* AudioController.mm */,
+				53D18D101F09572F00E7390F /* BufferManager.h */,
+				53D18D0F1F09572F00E7390F /* BufferManager.cpp */,
+				53D18D111F09572F00E7390F /* DCRejectionFilter.cpp */,
+				53D18D121F09572F00E7390F /* DCRejectionFilter.h */,
+				53D18D131F09572F00E7390F /* FFTHelper.cpp */,
+				53D18D141F09572F00E7390F /* FFTHelper.h */,
+				53D18D181F09576300E7390F /* CABitOperations.h */,
+				53D18D191F09576300E7390F /* CADebugMacros.h */,
+				53D18D1A1F09576300E7390F /* CADebugMacros.cpp */,
+				53D18D1B1F09576300E7390F /* CAXException.h */,
+				53D18D1C1F09576300E7390F /* CAXException.cpp */,
+				53D18D1D1F09576300E7390F /* CAMath.h */,
+				53D18D1E1F09576300E7390F /* CAStreamBasicDescription.h */,
+				53D18D1F1F09576300E7390F /* CAStreamBasicDescription.cpp */,
+			);
+			name = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -726,10 +785,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53D18D211F09576300E7390F /* CAXException.cpp in Sources */,
 				53773B401F0931DB0070E1AE /* ViewController.mm in Sources */,
+				53D18D161F09572F00E7390F /* DCRejectionFilter.cpp in Sources */,
 				53773B3D1F0931DB0070E1AE /* AppDelegate.m in Sources */,
+				53D18D221F09576300E7390F /* CAStreamBasicDescription.cpp in Sources */,
 				53773B3A1F0931DB0070E1AE /* main.m in Sources */,
+				53D18D151F09572F00E7390F /* BufferManager.cpp in Sources */,
 				53D18D051F093F3C00E7390F /* GLView.m in Sources */,
+				53D18D171F09572F00E7390F /* FFTHelper.cpp in Sources */,
+				53D18D201F09576300E7390F /* CADebugMacros.cpp in Sources */,
+				53D18D0D1F0956DF00E7390F /* AudioController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
