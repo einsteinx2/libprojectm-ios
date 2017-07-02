@@ -21,6 +21,7 @@
     ProjectMView *e = [[ProjectMView alloc] init];
     e.frame = CGRectMake(0, 0, 512, 512);
     [self.view addSubview:e];
+    [e startEqDisplay];
     
     // Do any additional setup after loading the view, typically from a nib.
 }
