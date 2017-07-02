@@ -65,7 +65,27 @@
 		53773B1C1F090D270070E1AE /* NativePresetFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53773B1A1F090D270070E1AE /* NativePresetFactory.cpp */; };
 		53773B1F1F090DA00070E1AE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53773B1E1F090DA00070E1AE /* OpenGLES.framework */; };
 		53773B211F090DF70070E1AE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53773B201F090DF70070E1AE /* QuartzCore.framework */; };
+		53773B3A1F0931DB0070E1AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53773B391F0931DB0070E1AE /* main.m */; };
+		53773B3D1F0931DB0070E1AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53773B3C1F0931DB0070E1AE /* AppDelegate.m */; };
+		53773B401F0931DB0070E1AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53773B3F1F0931DB0070E1AE /* ViewController.m */; };
+		53773B431F0931DB0070E1AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53773B411F0931DB0070E1AE /* Main.storyboard */; };
+		53773B451F0931DB0070E1AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53773B441F0931DB0070E1AE /* Assets.xcassets */; };
+		53773B481F0931DB0070E1AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53773B461F0931DB0070E1AE /* LaunchScreen.storyboard */; };
+		53773B4D1F0931E40070E1AE /* liblibProjectM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53773A271F090B4A0070E1AE /* liblibProjectM.a */; };
+		53773B521F0932430070E1AE /* ProjectMView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 53773B511F0932430070E1AE /* ProjectMView.mm */; };
+		53D18D011F09388B00E7390F /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 53D18CFF1F09388B00E7390F /* fonts */; };
+		53D18D021F09388B00E7390F /* presets in Resources */ = {isa = PBXBuildFile; fileRef = 53D18D001F09388B00E7390F /* presets */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		53773B4E1F0931E70070E1AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53773A1F1F090B4A0070E1AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53773A261F090B4A0070E1AE;
+			remoteInfo = libProjectM;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		53773A251F090B4A0070E1AE /* CopyFiles */ = {
@@ -244,6 +264,20 @@
 		53773B2E1F090F880070E1AE /* omptl_numeric_par.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = omptl_numeric_par.h; sourceTree = "<group>"; };
 		53773B2F1F090F880070E1AE /* omptl_numeric_ser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = omptl_numeric_ser.h; sourceTree = "<group>"; };
 		53773B301F090F880070E1AE /* omptl_tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = omptl_tools.h; sourceTree = "<group>"; };
+		53773B361F0931DB0070E1AE /* projectmtest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = projectmtest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		53773B391F0931DB0070E1AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		53773B3B1F0931DB0070E1AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		53773B3C1F0931DB0070E1AE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		53773B3E1F0931DB0070E1AE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		53773B3F1F0931DB0070E1AE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		53773B421F0931DB0070E1AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		53773B441F0931DB0070E1AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		53773B471F0931DB0070E1AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		53773B491F0931DB0070E1AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53773B501F0932430070E1AE /* ProjectMView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectMView.h; sourceTree = "<group>"; };
+		53773B511F0932430070E1AE /* ProjectMView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ProjectMView.mm; sourceTree = "<group>"; };
+		53D18CFF1F09388B00E7390F /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = SOURCE_ROOT; };
+		53D18D001F09388B00E7390F /* presets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = presets; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +290,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		53773B331F0931DB0070E1AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53773B4D1F0931E40070E1AE /* liblibProjectM.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -263,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				53773A291F090B4A0070E1AE /* libProjectM */,
+				53773B371F0931DB0070E1AE /* projectmtest */,
 				53773A281F090B4A0070E1AE /* Products */,
 				53773B1D1F090DA00070E1AE /* Frameworks */,
 			);
@@ -272,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				53773A271F090B4A0070E1AE /* liblibProjectM.a */,
+				53773B361F0931DB0070E1AE /* projectmtest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -492,6 +536,34 @@
 			path = omptl;
 			sourceTree = "<group>";
 		};
+		53773B371F0931DB0070E1AE /* projectmtest */ = {
+			isa = PBXGroup;
+			children = (
+				53D18CFF1F09388B00E7390F /* fonts */,
+				53D18D001F09388B00E7390F /* presets */,
+				53773B3B1F0931DB0070E1AE /* AppDelegate.h */,
+				53773B3C1F0931DB0070E1AE /* AppDelegate.m */,
+				53773B3E1F0931DB0070E1AE /* ViewController.h */,
+				53773B3F1F0931DB0070E1AE /* ViewController.m */,
+				53773B501F0932430070E1AE /* ProjectMView.h */,
+				53773B511F0932430070E1AE /* ProjectMView.mm */,
+				53773B411F0931DB0070E1AE /* Main.storyboard */,
+				53773B441F0931DB0070E1AE /* Assets.xcassets */,
+				53773B461F0931DB0070E1AE /* LaunchScreen.storyboard */,
+				53773B491F0931DB0070E1AE /* Info.plist */,
+				53773B381F0931DB0070E1AE /* Supporting Files */,
+			);
+			path = projectmtest;
+			sourceTree = "<group>";
+		};
+		53773B381F0931DB0070E1AE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				53773B391F0931DB0070E1AE /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -512,6 +584,24 @@
 			productReference = 53773A271F090B4A0070E1AE /* liblibProjectM.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		53773B351F0931DB0070E1AE /* projectmtest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53773B4A1F0931DB0070E1AE /* Build configuration list for PBXNativeTarget "projectmtest" */;
+			buildPhases = (
+				53773B321F0931DB0070E1AE /* Sources */,
+				53773B331F0931DB0070E1AE /* Frameworks */,
+				53773B341F0931DB0070E1AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				53773B4F1F0931E70070E1AE /* PBXTargetDependency */,
+			);
+			name = projectmtest;
+			productName = projectmtest;
+			productReference = 53773B361F0931DB0070E1AE /* projectmtest.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -526,6 +616,11 @@
 						DevelopmentTeam = 7596YH3S97;
 						ProvisioningStyle = Automatic;
 					};
+					53773B351F0931DB0070E1AE = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 7596YH3S97;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 53773A221F090B4A0070E1AE /* Build configuration list for PBXProject "libProjectM" */;
@@ -534,6 +629,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 53773A1E1F090B4A0070E1AE;
 			productRefGroup = 53773A281F090B4A0070E1AE /* Products */;
@@ -541,9 +637,25 @@
 			projectRoot = "";
 			targets = (
 				53773A261F090B4A0070E1AE /* libProjectM */,
+				53773B351F0931DB0070E1AE /* projectmtest */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		53773B341F0931DB0070E1AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53773B481F0931DB0070E1AE /* LaunchScreen.storyboard in Resources */,
+				53773B451F0931DB0070E1AE /* Assets.xcassets in Resources */,
+				53D18D021F09388B00E7390F /* presets in Resources */,
+				53773B431F0931DB0070E1AE /* Main.storyboard in Resources */,
+				53D18D011F09388B00E7390F /* fonts in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		53773A231F090B4A0070E1AE /* Sources */ = {
@@ -608,7 +720,45 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		53773B321F0931DB0070E1AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53773B401F0931DB0070E1AE /* ViewController.m in Sources */,
+				53773B3D1F0931DB0070E1AE /* AppDelegate.m in Sources */,
+				53773B3A1F0931DB0070E1AE /* main.m in Sources */,
+				53773B521F0932430070E1AE /* ProjectMView.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		53773B4F1F0931E70070E1AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53773A261F090B4A0070E1AE /* libProjectM */;
+			targetProxy = 53773B4E1F0931E70070E1AE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		53773B411F0931DB0070E1AE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53773B421F0931DB0070E1AE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		53773B461F0931DB0070E1AE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53773B471F0931DB0070E1AE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		53773A2E1F090B4A0070E1AE /* Debug */ = {
@@ -731,6 +881,32 @@
 			};
 			name = Release;
 		};
+		53773B4B1F0931DB0070E1AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7596YH3S97;
+				INFOPLIST_FILE = projectmtest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../libProjectM";
+				PRODUCT_BUNDLE_IDENTIFIER = com.einsteinx2.projectmtest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		53773B4C1F0931DB0070E1AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7596YH3S97;
+				INFOPLIST_FILE = projectmtest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../libProjectM";
+				PRODUCT_BUNDLE_IDENTIFIER = com.einsteinx2.projectmtest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -750,6 +926,16 @@
 				53773A321F090B4A0070E1AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53773B4A1F0931DB0070E1AE /* Build configuration list for PBXNativeTarget "projectmtest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53773B4B1F0931DB0070E1AE /* Debug */,
+				53773B4C1F0931DB0070E1AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
