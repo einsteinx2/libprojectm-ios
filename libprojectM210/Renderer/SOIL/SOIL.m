@@ -1360,9 +1360,11 @@ unsigned int
 			check_for_GL_errors( "GL_TEXTURE_WRAP_*" );
 		} else
 		{
-			/*	unsigned int clamp_mode = SOIL_CLAMP_TO_EDGE;	*/
-            #define GL_CLAMP 0x2900
+#ifdef USE_GLES1
+            unsigned int clamp_mode = SOIL_CLAMP_TO_EDGE;
+#else
 			unsigned int clamp_mode = GL_CLAMP;
+#endif
 			glTexParameteri( opengl_texture_type, GL_TEXTURE_WRAP_S, clamp_mode );
 			glTexParameteri( opengl_texture_type, GL_TEXTURE_WRAP_T, clamp_mode );
 			if( opengl_texture_type == SOIL_TEXTURE_CUBE_MAP )
@@ -1828,8 +1830,11 @@ unsigned int SOIL_direct_load_DDS_from_memory(
 			glTexParameteri( opengl_texture_type, SOIL_TEXTURE_WRAP_R, GL_REPEAT );
 		} else
 		{
-			/*	unsigned int clamp_mode = SOIL_CLAMP_TO_EDGE;	*/
-			unsigned int clamp_mode = GL_CLAMP;
+#ifdef USE_GLES1
+            unsigned int clamp_mode = SOIL_CLAMP_TO_EDGE;
+#else			
+            unsigned int clamp_mode = GL_CLAMP;
+#endif
 			glTexParameteri( opengl_texture_type, GL_TEXTURE_WRAP_S, clamp_mode );
 			glTexParameteri( opengl_texture_type, GL_TEXTURE_WRAP_T, clamp_mode );
 			glTexParameteri( opengl_texture_type, SOIL_TEXTURE_WRAP_R, clamp_mode );
