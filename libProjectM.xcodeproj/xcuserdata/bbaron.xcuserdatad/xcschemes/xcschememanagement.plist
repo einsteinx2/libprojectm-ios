@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>projectmtestsdl.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -23,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>53773B351F0931DB0070E1AE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>53D6286D1F0AD4ED0085A71D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

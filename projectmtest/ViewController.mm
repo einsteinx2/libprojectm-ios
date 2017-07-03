@@ -73,8 +73,8 @@
     settings.textureSize = 2048;  // idk?
     settings.windowWidth = width;
     settings.windowHeight = height;
-    settings.smoothPresetDuration = 8;//1; // seconds
-    settings.presetDuration = 65;//3;//5; // seconds
+    settings.smoothPresetDuration = 1; // seconds
+    settings.presetDuration = 3;//5; // seconds
     settings.beatSensitivity = 0.8;
     settings.aspectCorrection = 0;//1;
     settings.easterEgg = 0; // ???
@@ -94,7 +94,7 @@
 {
     short pcm_data[2][512];
     
-#if 0
+#if 1
     /** Produce some fake PCM data to stuff into projectM */
     for ( int i = 0 ; i < 512 ; i++ ) {
         if ( i % 2 == 0 ) {
