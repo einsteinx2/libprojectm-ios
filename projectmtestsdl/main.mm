@@ -9,9 +9,7 @@
 
 
 #include "SDL.h"
-//#include "SDL_opengles.h"
-
-#include <OpenGLES/ES1/gl.h>
+#include "SDL_opengles.h"
 #include <UIKit/UIKit.h>
 
 #include "projectM.hpp"
@@ -49,20 +47,18 @@ int selectAudioInput(projectMApp *app) {
 }
 
 void renderFrame(projectMApp *app) {
-    int i;
-    short pcm_data[2][512];
-    SDL_Event evt;
+//    SDL_Event evt;
     
-    SDL_PollEvent(&evt);
-    switch (evt.type) {
-        case SDL_KEYDOWN:
-            // ...
-            break;
-        case SDL_QUIT:
-            app->done = true;
-            break;
-    }
-
+//    SDL_PollEvent(&evt);
+//    switch (evt.type) {
+//        case SDL_KEYDOWN:
+//            // ...
+//            break;
+//        case SDL_QUIT:
+//            app->done = true;
+//            break;
+//    }
+    
 
 //        projectMEvent evt;
 //        projectMKeycode key;
@@ -79,9 +75,10 @@ void renderFrame(projectMApp *app) {
 //                pm->key_handler( evt, key, mod );
 //              }
 //          }
-
+    
     /** Produce some fake PCM data to stuff into projectM */
-    for ( i = 0 ; i < 512 ; i++ ) {
+    short pcm_data[2][512];
+    for ( int i = 0 ; i < 512 ; i++ ) {
         if ( i % 2 == 0 ) {
             pcm_data[0][i] = (float)( rand() / ( (float)RAND_MAX ) * (pow(2,14) ) );
             pcm_data[1][i] = (float)( rand() / ( (float)RAND_MAX ) * (pow(2,14) ) );
@@ -205,12 +202,14 @@ int main( int argc, char *argv[] ) {
     NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
     NSString *presetsPath = [bundlePath stringByAppendingString:@"/presets/"];
     NSString *fontsPath = [bundlePath stringByAppendingString:@"/fonts/"];
-    //app.settings.presetURL = [[presetsPath stringByAppendingString:@"presets_milkdrop"] cStringUsingEncoding:NSUTF8StringEncoding];
-    app.settings.presetURL = [[presetsPath stringByAppendingString:@"test"] cStringUsingEncoding:NSUTF8StringEncoding];
-    app.settings.menuFontURL = [[fontsPath stringByAppendingString:@"Vera.ttf"] cStringUsingEncoding:NSUTF8StringEncoding];
-    app.settings.titleFontURL = [[fontsPath stringByAppendingString:@"Vera.ttf"] cStringUsingEncoding:NSUTF8StringEncoding];
-    
+    //settings.presetURL = [[presetsPath stringByAppendingString:@"presets_milkdrop"] cStringUsingEncoding:NSUTF8StringEncoding];
+    settings.presetURL = [[presetsPath stringByAppendingString:@"test"] cStringUsingEncoding:NSUTF8StringEncoding];
+    settings.menuFontURL = [[fontsPath stringByAppendingString:@"Vera.ttf"] cStringUsingEncoding:NSUTF8StringEncoding];
+    settings.titleFontURL = [[fontsPath stringByAppendingString:@"Vera.ttf"] cStringUsingEncoding:NSUTF8StringEncoding];
+ 
+ 
     // init projectM
+    app.settings = settings
     app.pm = new projectM(app.settings);
     app.pm->selectRandom(true);
     app.pm->projectM_resetGL(width, height);
@@ -230,7 +229,7 @@ int main( int argc, char *argv[] ) {
 }*/
 
 
-
+/*
 int main( int argc, char *argv[] ) {
     projectMApp app;
     app.done = 0;
@@ -299,4 +298,168 @@ int main( int argc, char *argv[] ) {
     
     return PROJECTM_SUCCESS;
 }
+*/
 
+int
+main(int argc, char *argv[])
+{
+    int width = [[UIScreen mainScreen] bounds].size.width;
+    int height = [[UIScreen mainScreen] bounds].size.height;
+    
+    SDL_Window *window;         /* main window */
+    SDL_GLContext context;
+    int w, h;
+    Uint32 startFrame;          /* time frame began to process */
+    Uint32 endFrame;            /* time frame ended processing */
+    Uint32 delay;               /* time to pause waiting to draw next frame */
+    int done;                   /* should we clean up and exit? */
+    
+    /* initialize SDL */
+    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+        fprintf(stderr, "Failed to create renderer: %s\n", SDL_GetError());
+        return PROJECTM_ERROR;
+    }
+    /* seed the random number generator */
+    srand(time(NULL));
+    /*
+     request some OpenGL parameters
+     that may speed drawing
+     */
+    SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 5);
+    SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 6);
+    SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 5);
+    SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 0);
+    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 0);
+    SDL_GL_SetAttribute(SDL_GL_RETAINED_BACKING, 0);
+    SDL_GL_SetAttribute(SDL_GL_ACCELERATED_VISUAL, 1);
+    
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 1);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+    
+    /* create main window and renderer */
+    window = SDL_CreateWindow(NULL, 0, 0, width, height,
+                              SDL_WINDOW_OPENGL |
+                              SDL_WINDOW_BORDERLESS);
+    context = SDL_GL_CreateContext(window);
+    
+    /* load project m */
+    projectM::Settings settings;
+    settings.meshX = 1;
+    settings.meshY = 1;
+    settings.fps   = 60;
+    settings.textureSize = 2048;  // idk?
+    settings.windowWidth = width;
+    settings.windowHeight = height;
+    settings.smoothPresetDuration = 1; // seconds
+    settings.presetDuration = 3;//5; // seconds
+    settings.beatSensitivity = 0.8;
+    settings.aspectCorrection = 0;//1;
+    settings.easterEgg = 0; // ???
+    settings.shuffleEnabled = 0;//1;
+    settings.softCutRatingsEnabled = 1; // ???
+    
+    NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
+    NSString *presetsPath = [bundlePath stringByAppendingString:@"/presets/"];
+    NSString *fontsPath = [bundlePath stringByAppendingString:@"/fonts/"];
+    //app.settings.presetURL = [[presetsPath stringByAppendingString:@"presets_milkdrop"] cStringUsingEncoding:NSUTF8StringEncoding];
+    settings.presetURL = [[presetsPath stringByAppendingString:@"test"] cStringUsingEncoding:NSUTF8StringEncoding];
+    settings.menuFontURL = [[fontsPath stringByAppendingString:@"Vera.ttf"] cStringUsingEncoding:NSUTF8StringEncoding];
+    settings.titleFontURL = [[fontsPath stringByAppendingString:@"Vera.ttf"] cStringUsingEncoding:NSUTF8StringEncoding];
+    
+    // init projectM
+    projectM *pm;
+    pm = new projectM(settings);
+    pm->selectRandom(true);
+    pm->projectM_resetGL(width, height);
+    
+    /* set up some OpenGL state */
+    glDisable(GL_DEPTH_TEST);
+    glDisable(GL_CULL_FACE);
+    
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    
+    int screen_w, screen_h;
+    SDL_GetWindowSize(window, &screen_w, &screen_h);
+    glViewport(0, 0, screen_w, screen_h);
+    
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrthof((GLfloat) 0,
+             (GLfloat) screen_w,
+             (GLfloat) screen_h,
+             (GLfloat) 0, 0.0, 1.0);
+    
+    glEnable(GL_TEXTURE_2D);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_COLOR_ARRAY);
+//
+//    glEnable(GL_POINT_SPRITE_OES);
+//    glTexEnvi(GL_POINT_SPRITE_OES, GL_COORD_REPLACE_OES, 1);
+//
+//    if (pointSizeExtensionSupported) {
+//        /* we use this to set the sizes of all the particles */
+//        glEnableClientState(GL_POINT_SIZE_ARRAY_OES);
+//    } else {
+//        /* if extension not available then all particles have size 10 */
+//        glPointSize(10);
+//    }
+    
+    done = 0;
+    /* enter main loop */
+    while (!done) {
+        startFrame = SDL_GetTicks();
+        
+        ////// DRAW
+        
+        /** Produce some fake PCM data to stuff into projectM */
+        short pcm_data[2][512];
+        for ( int i = 0 ; i < 512 ; i++ ) {
+            if ( i % 2 == 0 ) {
+                pcm_data[0][i] = (float)( rand() / ( (float)RAND_MAX ) * (pow(2,14) ) );
+                pcm_data[1][i] = (float)( rand() / ( (float)RAND_MAX ) * (pow(2,14) ) );
+            } else {
+                pcm_data[0][i] = (float)( rand() / ( (float)RAND_MAX ) * (pow(2,14) ) );
+                pcm_data[1][i] = (float)( rand() / ( (float)RAND_MAX ) * (pow(2,14) ) );
+            }
+            if ( i % 2 == 1 ) {
+                pcm_data[0][i] = -pcm_data[0][i];
+                pcm_data[1][i] = -pcm_data[1][i];
+            }
+        }
+        
+        /** Add the waveform data */
+        pm->pcm()->addPCM16(pcm_data);
+        
+        glClearColor( 0.0, 0.5, 0.0, 0.0 );
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        
+        pm->renderFrame();
+        glFlush();
+        
+        ////////////
+        
+        
+        SDL_GL_SwapWindow(window);
+        endFrame = SDL_GetTicks();
+        
+        /* figure out how much time we have left, and then sleep */
+        #define MILLESECONDS_PER_FRAME 16       /* about 60 frames per second */
+        delay = MILLESECONDS_PER_FRAME - (endFrame - startFrame);
+        if (delay > MILLESECONDS_PER_FRAME) {
+            delay = MILLESECONDS_PER_FRAME;
+        }
+        if (delay > 0) {
+            SDL_Delay(delay);
+        }
+    }
+    
+    /* delete textures */
+    //glDeleteTextures(1, &particleTextureID);
+    /* shutdown SDL */
+    SDL_Quit();
+    
+    return 0;
+}

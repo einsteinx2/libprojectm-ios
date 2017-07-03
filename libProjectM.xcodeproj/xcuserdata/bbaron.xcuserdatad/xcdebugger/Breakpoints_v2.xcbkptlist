@@ -170,11 +170,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "projectmtestsdl/main.mm"
-            timestampString = "520810576.214013"
+            timestampString = "520812130.756775"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144">
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -184,11 +186,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "projectmtestsdl/main.mm"
-            timestampString = "520810576.214013"
+            timestampString = "520812130.757194"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161">
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
