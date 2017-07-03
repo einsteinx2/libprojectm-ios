@@ -13,7 +13,8 @@
 #include "glew.h"
 #endif
 #ifdef __APPLE__
-#include <OpenGL/gl.h>
+//#include <OpenGL/gl.h>
+#include "Regal.h"
 #endif
 
 #include <cmath>

@@ -22,8 +22,10 @@
 	#include <GL/gl.h>
 #elif defined(__APPLE__) || defined(__APPLE_CC__)
 	/*	I can't test this Apple stuff!	*/
-	#include <OpenGL/gl.h>
-	#include <Carbon/Carbon.h>
+	//#include <OpenGL/gl.h>
+	//#include <Carbon/Carbon.h>
+    #include "Regal.h"
+    #include <Foundation/Foundation.h>
 	#define APIENTRY
 #else
 	#include <GL/gl.h>

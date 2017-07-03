@@ -8,7 +8,8 @@
 
 
 #import <QuartzCore/QuartzCore.h>
-#import <OpenGLES/EAGLDrawable.h>
+//#import <OpenGLES/EAGLDrawable.h>
+#import "Regal.h"
 
 #import "GLView.h"
 #import "ConstantsAndMacros.h"
@@ -49,12 +50,20 @@
         eaglLayer.opaque = YES;
         eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
                                         [NSNumber numberWithBool:NO], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat, nil];
-    
-        _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
-        
-        if (!_context || ![EAGLContext setCurrentContext:_context]) {
-            return nil;
+
+#if kAttemptToUseOpenGLES2
+        _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+        if (_context == NULL)
+        {
+#endif
+            _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
+            
+            if (!_context || ![EAGLContext setCurrentContext:_context]) {
+                return nil;
+            }
+#if kAttemptToUseOpenGLES2
         }
+#endif
         
         _animationInterval = 1.0 / kRenderingFrequency;
     }
@@ -109,10 +118,13 @@
 
 - (void)destroyFramebuffer
 {
-    glDeleteFramebuffersOES(1, &_viewFramebuffer);
-    _viewFramebuffer = 0;
-    glDeleteRenderbuffersOES(1, &_viewRenderbuffer);
-    _viewRenderbuffer = 0;
+    if (_viewFramebuffer)
+    {
+        glDeleteFramebuffersOES(1, &_viewFramebuffer);
+        _viewFramebuffer = 0;
+        glDeleteRenderbuffersOES(1, &_viewRenderbuffer);
+        _viewRenderbuffer = 0;
+    }
     
     if(_depthRenderbuffer) 
     {

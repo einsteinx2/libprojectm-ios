@@ -10,6 +10,7 @@
 #import "ConstantsAndMacros.h"
 #import "projectM.hpp"
 #import "AudioController.h"
+#import "Regal.h"
 
 @interface ViewController()
 {

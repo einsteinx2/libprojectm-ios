@@ -18,7 +18,7 @@
 // Defines whether to setup and use a depth buffer
 #define USE_DEPTH_BUFFER                1
 // Set to 1 if you want it to attempt to create a 2.0 context
-#define kAttemptToUseOpenGLES2          0
+#define kAttemptToUseOpenGLES2          1
 
 #define QUATERNION_TRACE_ZERO_TOLERANCE		0.1
 

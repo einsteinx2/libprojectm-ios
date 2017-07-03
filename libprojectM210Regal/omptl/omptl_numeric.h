@@ -19,7 +19,7 @@
 #define OMPTL_NUMERIC 1
 
 #include <numeric>
-#include "omptl"
+#include "omptl.h"
 
 namespace omptl
 {

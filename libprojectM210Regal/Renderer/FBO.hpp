@@ -36,9 +36,10 @@
 #endif
 #endif
 
-#ifdef MACOS
-#include <OpenGL/gl.h>
-#include <AGL/agl.h>
+#ifdef __APPLE__
+#include "Regal.h"
+//#include <OpenGL/gl.h>
+//#include <AGL/agl.h>
 #endif /** MACOS */
 
 #ifdef WIN32

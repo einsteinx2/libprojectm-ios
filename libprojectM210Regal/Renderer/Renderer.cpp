@@ -8,8 +8,8 @@
 #include <algorithm>
 #include <sys/stat.h>
 #include <cassert>
-#include "omptl/omptl"
-#include "omptl/omptl_algorithm"
+#include "omptl.h"
+#include "omptl_algorithm.h"
 #include "UserTexture.hpp"
 
 class Preset;

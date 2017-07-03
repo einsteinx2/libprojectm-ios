@@ -4,7 +4,7 @@
 #include <cassert>
 #include <iostream>
 #include <cmath>
-#include "Renderer/BeatDetect.hpp"
+#include "BeatDetect.hpp"
 
 PresetInputs::PresetInputs() : PipelineContext()
 {
