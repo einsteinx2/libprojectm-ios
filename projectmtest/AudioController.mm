@@ -56,7 +56,7 @@ static OSStatus	performRender (void                         *inRefCon,
         // Copy PCM data
         memcpy(cd.bufferManager->mPCMData, (Float32*)ioData->mBuffers[0].mData, inNumberFrames);
         cd.bufferManager->mPCMSamples = inNumberFrames;
-        NSLog(@"first sample: %f copy: %f", ((Float32*)ioData->mBuffers[0].mData)[0], cd.bufferManager->mPCMData[0]);
+        //NSLog(@"first sample: %f copy: %f", ((Float32*)ioData->mBuffers[0].mData)[0], cd.bufferManager->mPCMData[0]);
         
         // based on the current display mode, copy the required data to the buffer manager
         if (cd.bufferManager->GetDisplayMode() == aurioTouchDisplayModeOscilloscopeWaveform)
